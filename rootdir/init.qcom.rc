@@ -240,7 +240,7 @@ on post-fs-data
     mkdir /data/vendor/misc 01771 system system
 
     # Legacy ril-daemon is now disabled by default
-    enable ril-daemon
+    start ril-daemon
 
     # Create directory used for dump collection
     mkdir /data/vendor/ssrdump 0770 root system
@@ -982,7 +982,7 @@ service battery_monitor /system/bin/battery_monitor
 service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service profiler_daemon /system/bin/profiler_daemon
@@ -1125,8 +1125,9 @@ on property:vendor.display.lcd_density=*
 
 service time_daemon /system/vendor/bin/time_daemon
     class main
-    user root
-    group root
+    user system
+    group system
+    capabilities SYS_TIME
 
 service vendor.vppservice /vendor/bin/vppservice
     class main

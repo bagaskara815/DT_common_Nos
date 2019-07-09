@@ -566,6 +566,18 @@ vendor/lib64/vendor.qti.hardware.iop@1.0.so
 vendor/lib64/vendor.qti.hardware.iop@2.0.so
 vendor/lib64/vendor.qti.hardware.perf@1.0.so
 
+# Perf QPerformance - from TA-1024
+bin/perfservice
+etc/init/perfservice.rc
+-framework/QPerformance.jar
+-framework/UxPerformance.jar
+lib/libqti-iopd-client_system.so
+lib/libqti-util_system.so
+lib/libqti_performance.so
+lib64/libqti-iopd-client_system.so
+lib64/libqti-util_system.so
+lib64/libqti_performance.so
+
 # Peripheral manager - from sakura
 vendor/bin/pm-proxy
 vendor/bin/pm-service
@@ -731,8 +743,8 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/radio/qcril_database/qcril.db
 
-# Radio - QTI Extension - from sakura
--framework/qti-telephony-common.jar
+# Radio - from LA.UM.7.5.r1-04000-8x96.0
+framework/qti-telephony-common.jar|9aa88e7f3166d86da217d688b003c2ecf2840acf
 
 # Radio - IMS - from sakura
 -app/imssettings/imssettings.apk
@@ -745,7 +757,6 @@ etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 -framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 -framework/vendor.qti.ims.callinfo-V1.0-java.jar
 -framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
--priv-app/ims/ims.apk
 lib/com.qualcomm.qti.imscmservice@1.0.so
 lib/com.qualcomm.qti.imscmservice@2.0.so
 lib/com.qualcomm.qti.imscmservice@2.1.so
@@ -839,6 +850,8 @@ vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
+# Radio - IMS - from LA.UM.7.5.r1-04000-8x96.0
+-priv-app/ims/ims.apk|e601112f50eef846e8672eb03bcbc6e472b927c1
 
 # Sensors - from TA-1024
 -framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar

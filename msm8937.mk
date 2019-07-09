@@ -152,6 +152,7 @@ PRODUCT_PACKAGES += \
     libhwc2on1adapter \
     libgenlock \
     libtinyxml \
+    libqdMetaData \
     libqdMetaData.system
 
 PRODUCT_PACKAGES += \
@@ -285,7 +286,7 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
-    
+   
 # Xiaomi Parts
 PRODUCT_PACKAGES += \
     XiaomiParts
@@ -304,6 +305,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf \
     $(LOCAL_PATH)/configs/perf/targetconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetconfig.xml \
     $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml
+
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
 
 # Power
 PRODUCT_PACKAGES += \
@@ -342,14 +347,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
     $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
-
-# Telephony
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # TextClassifier
 PRODUCT_PACKAGES += \

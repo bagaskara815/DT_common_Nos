@@ -129,6 +129,13 @@ ro.vendor.qti.sys.fw.trim_empty_percent=100
 ro.vendor.qti.sys.fw.trim_cache_percent=100
 ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
 
+# Perf Ux IOPrefetcher
+vendor.enable_prefetch=1
+vendor.iop.enable_uxe=1
+vendor.iop.enable_prefetch_ofr=1 
+vendor.perf.iop_v3.enable=1
+persist.vendor.qti.games.gt.prof=1
+
 #system props for time-services
 persist.timed.enable=true
 
@@ -172,3 +179,17 @@ persist.radio.aosp_usr_pref_sel=true
 ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
 ril.subscription.types=NV,RUIM
 telephony.lteOnCdmaDevice=1
+
+# Dalvik
+ro.sys.fw.dex2oat_thread_count=4
+dalvik.vm.boot-dex2oat-threads=8
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-threads=4
+dalvik.vm.dex2oat-filter=speed
+dalvik.vm.image-dex2oat-filter=speed
+dalvik.vm.heapgrowthlimit=256m
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=8m
