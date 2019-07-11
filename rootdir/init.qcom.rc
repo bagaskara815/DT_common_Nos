@@ -1125,9 +1125,8 @@ on property:vendor.display.lcd_density=*
 
 service time_daemon /system/vendor/bin/time_daemon
     class main
-    user system
-    group system
-    capabilities SYS_TIME
+    user root
+    group root
 
 service vendor.vppservice /vendor/bin/vppservice
     class main
