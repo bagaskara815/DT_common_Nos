@@ -1602,7 +1602,10 @@ audio_io_handle_t AudioPolicyManagerCustom::getOutputForDevice(
     }
 
     if(property_get("vendor.voice.voip.conc.disabled", propValue, NULL)) {
-       prop_voip_enabled = atoi(propValue) || !strncmp("true"FallBackNeeded =
+       prop_voip_enabled = atoi(propValue) || !strncmp("true", propValue, 4);
+    }
+
+    bool isDeepBufferFallBackNeeded =
         ((AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD | AUDIO_OUTPUT_FLAG_DIRECT_PCM) & *flags);
     bool isFastFallBackNeeded =
         ((AUDIO_OUTPUT_FLAG_DEEP_BUFFER | AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD | AUDIO_OUTPUT_FLAG_DIRECT_PCM) & *flags);
@@ -2125,7 +2128,7 @@ status_t AudioPolicyManagerCustom::startInput(audio_io_handle_t input,
                         ALOGD("startInput(%d) allow concurrent HOTWORD recording with other input %d",
                               input, activeDesc->mIoHandle);
                     } else {
-                        ALOGV("startInput(%d) failed for HOTWORD: other input %deady started",
+                        ALOGV("startInput(%d) failed for HOTWORD: other input %d already started",
                               input, activeDesc->mIoHandle);
                         return INVALID_OPERATION;
                     }
