@@ -191,8 +191,8 @@ PRODUCT_PACKAGES += \
     libgnsspps \
     libcurl
 
-PRODUCT_BOOT_JARS += \
-    com.qti.location.sdk
+#PRODUCT_BOOT_JARS += \
+#    com.qti.location.sdk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
@@ -307,9 +307,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf/targetconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetconfig.xml \
     $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml
 
-PRODUCT_BOOT_JARS += \
-    QPerformance \
-    UxPerformance
+#PRODUCT_BOOT_JARS += \
+#    QPerformance \
+#    UxPerformance
 
 # Power
 PRODUCT_PACKAGES += \
@@ -407,8 +407,8 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libnl
 
- PRODUCT_BOOT_JARS += \
-    WfdCommon
+#PRODUCT_BOOT_JARS += \
+#    WfdCommon
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 

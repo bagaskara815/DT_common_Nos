@@ -20,6 +20,7 @@ VENDOR_PATH := device/xiaomi/msm8937-common
 
 # Build
 BUILD_BROKEN_DUP_RULES := true
+WITHOUT_CHECK_API := true
 
 # Kernel
 BOARD_KERNEL_BASE		:= 0x80000000
@@ -244,11 +245,12 @@ TARGET_USES_OLD_MNC_FORMAT := true
 TARGET_RECOVERY_FSTAB 		 := $(VENDOR_PATH)/rootdir/fstab.qcom
 
 # SELinux
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wi-Fi
-TARGET_WLAN_VARIANT := caf
 PRODUCT_VENDOR_MOVE_ENABLED      := true
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
