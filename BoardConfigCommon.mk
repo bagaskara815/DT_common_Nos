@@ -21,6 +21,11 @@ VENDOR_PATH := device/xiaomi/msm8937-common
 # Build
 BUILD_BROKEN_DUP_RULES := true
 WITHOUT_CHECK_API := true
+BUILD_BROKEN_DUP_COPY_HEADERS := true
+BUILD_BROKEN_PHONY_TARGETS := true
+
+# Apex Image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Kernel
 BOARD_KERNEL_BASE		:= 0x80000000
@@ -35,7 +40,7 @@ TARGET_KERNEL_CLANG_COMPILE := false
 TARGET_KERNEL_CLANG_VERSION := 9.0.4
 
 # Use 'android' instead of 'androidkernel'
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # Architecture
 TARGET_ARCH 	    	:= arm64
@@ -168,7 +173,7 @@ TARGET_ENABLE_MEDIADRM_64 := true
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/cryptfs_hw
 
 # FM
 BOARD_HAVE_QCOM_FM                 := true
