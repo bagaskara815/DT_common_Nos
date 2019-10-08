@@ -324,6 +324,15 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
