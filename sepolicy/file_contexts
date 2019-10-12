@@ -27,6 +27,9 @@
 # Legacy root dirs
 /firmware(/.*)?            u:object_r:firmware_file:s0
 
+# persist dir
+/persist(/.*)?            u:object_r:persist_file:s0
+
 # Block devices
 /dev/block/bootdevice/by-name/persist		u:object_r:persist_block_device:s0
 
