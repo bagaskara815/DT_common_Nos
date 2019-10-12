@@ -24,18 +24,22 @@ BUILD_BROKEN_DUP_RULES := true
 # Kernel
 BOARD_KERNEL_BASE		:= 0x80000000
 BOARD_KERNEL_CMDLINE 		:= androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78B0000
-#BOARD_KERNEL_CMDLINE		+= androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE		+= androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE 		+= firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_IMAGE_NAME 	:= Image.gz-dtb
 BOARD_KERNEL_PAGESIZE 		:=  2048
 BOARD_MKBOOTIMG_ARGS 		:= --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE 		:= kernel/xiaomi/msm8937
 TARGET_EXFAT_DRIVER		:= sdfat
-TARGET_KERNEL_CLANG_COMPILE := true
+#TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CLANG_VERSION := 9.0.5
 
 # Use 'android' instead of 'androidkernel'
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+WITHOUT_CHECK_API := true
 
 # Architecture
 TARGET_ARCH 	    	:= arm64
@@ -245,11 +249,12 @@ TARGET_USES_OLD_MNC_FORMAT := true
 TARGET_RECOVERY_FSTAB 		 := $(VENDOR_PATH)/rootdir/fstab.qcom
 
 # SELinux
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wi-Fi
-TARGET_WLAN_VARIANT := caf
 PRODUCT_VENDOR_MOVE_ENABLED      := true
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
@@ -266,13 +271,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 # Inherit the common proprietary files
 -include vendor/xiaomi/msm8937-common/BoardConfigVendor.mk
 
-#Omni Target
-TARGET_QCOM_DISPLAY_VARIANT := caf-msm8996
-TARGET_QCOM_AUDIO_VARIANT := caf-msm8996
-TARGET_QCOM_MEDIA_VARIANT := caf-msm8996
-TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8996
-
-PRODUCT_SOONG_NAMESPACES += \
-	hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
-	hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
-	hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
